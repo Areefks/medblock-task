@@ -9,24 +9,36 @@ function Home() {
         style={{
           margin: "20px",
           textAlign: "center",
-          backgroundImage: "linear-gradient(to right,lightgreen, yellow)",
         }}
       >
         Medblocks
       </h1>
-      <div
-        style={{ margin: "20px", gap: "50px" }}
-        className="btn d-flex flex-row"
-      >
-        <Link to={`/register`}>
-          <button className="btn btn-secondary btn-lg">Register</button>
-        </Link>
-        <Link to={`/list`}>
-          <button className="btn btn-secondary btn-lg">Patient List</button>
-        </Link>
-        <Link to={`/tree`}>
-          <button className="btn btn-secondary btn-lg">Tree</button>
-        </Link>
+      <div>
+        <ul
+          style={{
+            marginTop: "120px",
+            marginRight: "55px",
+            textAlign: "center",
+          }}
+        >
+          <Link to={`/register`}>
+            <ul>
+              <button className="btn btn-secondary btn-lg">Register</button>
+            </ul>
+          </Link>
+          <br></br>
+          <Link to={`/list`}>
+            <ul>
+              <button className="btn btn-secondary btn-lg">Patient List</button>
+            </ul>
+          </Link>
+          <br></br>
+          <Link to={`/tree`}>
+            <ul>
+              <button className="btn btn-secondary btn-lg">Tree</button>
+            </ul>
+          </Link>
+        </ul>
       </div>
     </div>
   );

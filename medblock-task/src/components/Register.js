@@ -20,16 +20,23 @@ function Register(props) {
       birthDate: state.dateOfBirth,
       telecom: [{ value: state.telecom }],
     };
-    console.log(payload);
 
-    if (state.gender && state.firstName) {
+    if (
+      state.gender !== "" &&
+      state.firstName !== "" &&
+      (state.telecom.length >= 10 || state.telecom === "")
+    ) {
+      console.log(payload);
+
       await instance.post("/Patient", payload).then((res) => {
         if (res.status === 200 || 201) {
-          console.log("registration successful");
+          alert("registration successful");
         } else {
-          console.log("registration failed");
+          alert("registration failed");
         }
       });
+    } else {
+      alert("Fill The required fields");
     }
   };
   const handleChange = (e) => {
@@ -55,7 +62,7 @@ function Register(props) {
       >
         <span style={{ width: "fit-content", display: "flex" }}>
           <div>
-            <label style={{ margin: "20px" }}>FirstName</label>
+            <label style={{ margin: "20px" }}>FirstName:*</label>
 
             <input
               type="text"
@@ -68,7 +75,7 @@ function Register(props) {
             />
           </div>
           <div>
-            <label style={{ margin: "20px" }}>LastName</label>
+            <label style={{ margin: "20px" }}>LastName:</label>
 
             <input
               type="text"
@@ -84,7 +91,7 @@ function Register(props) {
         <span>
           <div>
             <label style={{ margin: "20px" }} htmlFor="gender">
-              Choose a Gender:
+              Choose a Gender:*
             </label>
 
             <select
